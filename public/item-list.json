@@ -1,0 +1,38 @@
+[
+    {
+        "id":1,
+        "line":"WIX",
+        "item":"51515",
+        "category":"Filter",
+        "netprice":5.67,
+        "yearly-demand":50000,
+        "restricted": false
+    },
+    {
+        "id":2,
+        "line":"WIX",
+        "item":"51516",
+        "category":"Filter",
+        "netprice":7.89,
+        "yearly-demand":10000,
+        "restricted": false
+    },
+    {
+        "id":3,
+        "line":"LOC",
+        "item":"12345",
+        "category":"Filter",
+        "netprice":7.12,
+        "yearly-demand":10000,
+        "restricted": false
+    },
+    {
+        "id":4,
+        "line":"ASD",
+        "item":"FGH-300",
+        "category":"Something Else",
+        "netprice":30.29,
+        "yearly-demand":25000,
+        "restricted": false
+    }
+]
