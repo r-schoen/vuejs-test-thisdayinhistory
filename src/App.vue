@@ -1,9 +1,11 @@
 <template>
   <div id="app" class="container">
-    <h1>Wikipedia, this day in history</h1>
+    <h1>On This Day</h1>
+    <h3>Provided by Wikipedia</h3>
     <datepicker 
+      id='datepicker'
       v-model="model.date"
-      :inline='true' 
+      :inline='false' 
       :value="model.date" 
       :highlighted="model.highlighted"
       @selected="updateDate($event)"
@@ -12,6 +14,11 @@
     <router-view />
   </div>
 </template>
+<style lang="scss">
+h1,h2,h3 {
+  text-align:center;
+}
+</style>
 <script>
 import Datepicker from 'vuejs-datepicker'
 
