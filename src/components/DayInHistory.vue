@@ -1,6 +1,6 @@
 <template>
     <div id='day-in-history'>
-        {{ this.$store.state.dateEventData }}
+        {{ this.dateEventData }}
     </div>
 </template>
 
@@ -9,11 +9,11 @@
 export default {
     data() {
         return {
-            dateEventData: null
+            dateEventData: this.$store.state.dateEventData
         }
-    },
-    mounted() {
-        this.dateEventData = this.$store.state.dateEventData
     }
+    /*mounted() {
+        this.dateEventData = this.$store.state.dateEventData
+    }*/
 }
 </script> 

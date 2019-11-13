@@ -5,6 +5,7 @@
       v-model="model.date"
       :inline='true' 
       :value="model.date" 
+      :highlighted="model.highlighted"
       @selected="updateDate($event)"
       @opened="updateDate($event)">
     </datepicker>
@@ -20,6 +21,11 @@ export default {
     return {
       model: {
         date: new Date(),
+        highlighted: {
+          dates: [
+            new Date()
+          ]
+        }
       }
     }
   },

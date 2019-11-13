@@ -25,7 +25,7 @@ export default new Vuex.Store({
   },
   actions: {
     updateDateEventData ({ commit }, date) {
-      var formattedDate = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`
+      var formattedDate = `${date.getMonth()+1}/${date.getDate()}`
       Axios.get(FULL_URL + formattedDate)
         .then(response => {
           commit('updateSelectedDate', formattedDate)
