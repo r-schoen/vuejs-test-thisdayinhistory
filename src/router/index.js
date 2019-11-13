@@ -1,13 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ItemList from '../components/ItemList.vue'
-Vue.use(VueRouter)
+import DayInHistory from '../components/DayInHistory.vue'
 
+Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: ItemList
+    component: DayInHistory
   }
 ]
 
