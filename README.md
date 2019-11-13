@@ -1,4 +1,4 @@
-# vue-project-attila
+# Vuejs test
 
 ## Project setup
 ```
