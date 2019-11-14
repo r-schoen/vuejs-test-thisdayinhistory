@@ -8,24 +8,14 @@
       :inline='false' 
       :value="model.date" 
       :highlighted="model.highlighted"
-      :popover-align="center"
+      popover-align="center"
       @selected="updateDate($event)"
       @opened="updateDate($event)">
     </datepicker>
     <day-in-history />
   </div>
 </template>
-<style lang="scss">
-h1,h2,h3 {
-  text-align:center;
-}
-.vdp-datepicker,#datepicker {
-  div {
-    text-align:center;
-  }
-  text-align:center;
-}
-</style>
+
 <script>
 import Datepicker from 'vuejs-datepicker'
 import DayInHistory from './DayInHistory.vue'

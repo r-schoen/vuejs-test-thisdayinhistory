@@ -1,7 +1,6 @@
 <template>
   <div id="app" class="container">
     <div id='navbar'>
-      <a href="/#/">Home</a> - 
       <a href="/#/day-in-history">Day In History</a> -
       <a href="/#/todo">To Do</a>
     </div>
@@ -15,6 +14,7 @@
 }
 </style>
 <script>
+import "@/style.scss"
 export default {
   
 }

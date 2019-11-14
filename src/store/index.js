@@ -10,17 +10,40 @@ import { FULL_URL } from "@/util/constants"
 export default new Vuex.Store({
   state: {
     selectedDate: null,
-    dateEventData: null
+    dateEventData: null,
+    todoData: [
+      {
+        text:"Take out the trash",
+        due:"2019-11-14"
+      },
+      {
+        text:"Study Chinese",
+        due:"2019-11-14"
+      },
+      {
+        text:"Jog 2 miles",
+        due:"2019-11-14"
+      }
+  ]
   },
   mutations: {
     updateSelectedDate (state, selectedDate) {
-      console.log(`Changing to date: ${selectedDate}`)
       state.selectedDate = selectedDate
     },
     updateDateEventData (state, dateEventData) {
-      console.log('Changing to data:')
-      console.log(dateEventData)
       state.dateEventData = dateEventData
+    },
+    updateTodos (state, payload) {
+      state.todoData[payload.index][payload.column] = payload.contents
+    },
+    deleteTodo(state, index) {
+      state.todoData.pop(index)
+    },
+    addTodo(state){
+      state.todoData.push({
+        text:"Enter Text...",
+        due:"Enter Due Date..."
+      })
     }
   },
   actions: {
@@ -31,6 +54,15 @@ export default new Vuex.Store({
           commit('updateSelectedDate', formattedDate)
           commit('updateDateEventData', response.data)
         })
+    },
+    updateTodos({commit}, payload) {
+      commit('updateTodos',payload)
+    },
+    deleteTodo({ commit }, index) {
+      commit('deleteTodo',index)
+    },
+    addTodo({ commit }) {
+      commit('addTodo')
     }
   }
 })

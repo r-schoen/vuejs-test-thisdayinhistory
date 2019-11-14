@@ -15,12 +15,3 @@
         </ul>
     </div>
 </template>
-<style lang="scss">
-$sourcesColor: darkblue;
-.sources {
-    a {
-        color:$sourcesColor;
-    }
-    color:$sourcesColor;
-}
-</style>
