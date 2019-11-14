@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
     <div id='navbar'>
-      <a href="/#/day-in-history">Day In History</a> -
+      <a href="/#/day-in-history">On This Day</a> -
       <a href="/#/todo">To Do</a>
     </div>
 
