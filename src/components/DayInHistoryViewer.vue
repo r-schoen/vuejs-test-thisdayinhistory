@@ -23,6 +23,7 @@ import { FULL_URL } from '../util/constants.js'
 export default {
   data() {
     return {
+      name: "russell",
       model: {
         date: new Date(),
         highlighted: {
