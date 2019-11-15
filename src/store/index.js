@@ -4,7 +4,6 @@ import Axios from 'axios'
 
 Vue.use(Vuex)
 
-import { FULL_URL } from "@/util/constants"
 
 
 export default new Vuex.Store({
@@ -47,11 +46,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    updateDateEventData ({ commit }, date) {
-      var formattedDate = `${date.getMonth()+1}/${date.getDate()}`
-      Axios.get(FULL_URL + formattedDate)
+    updateDateEventData ({ commit }, url, date) {
+      Axios.get(url)
         .then(response => {
-          commit('updateSelectedDate', formattedDate)
+          commit('updateSelectedDate', date)
           commit('updateDateEventData', response.data)
         })
     },

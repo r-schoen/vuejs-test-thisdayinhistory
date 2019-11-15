@@ -19,7 +19,7 @@
 <script>
 import Datepicker from 'vuejs-datepicker'
 import DayInHistory from './DayInHistory.vue'
-
+import { FULL_URL } from '../util/constants.js'
 export default {
   data() {
     return {
@@ -39,11 +39,17 @@ export default {
   },
   methods: {
     updateDate: function(date) {
-      this.$store.dispatch('updateDateEventData', date)
+      this.model.date = date
+      this.$store.dispatch('updateDateEventData', this.url, date)
     }
   },
   mounted() {
-    this.$store.dispatch('updateDateEventData', new Date())
+    this.$store.dispatch('updateDateEventData', this.url, this.date)
+  },
+  computed: {
+    url: function() {
+      return `${FULL_URL}${this.model.date.getMonth()+1}/${this.model.date.getDate()}`
+    }
   }
 }
 </script>
