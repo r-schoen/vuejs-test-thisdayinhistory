@@ -8,11 +8,7 @@
     <router-view />
   </div>
 </template>
-<style lang="scss">
-#navbar {
-  text-align: center;
-}
-</style>
+
 <script>
 import "@/style.scss"
 export default {

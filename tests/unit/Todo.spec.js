@@ -1,12 +1,12 @@
 import {  assert } from 'chai'
 import { shallowMount, createLocalVue } from "@vue/test-utils"
-import DayInHistoryViewer from "@/components/DayInHistoryViewer.vue"
+import Todo from "@/components/DayInHistoryViewer.vue"
 import Vuex from 'vuex' 
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('DayInHistoryViewer', () => {
+describe('Todo', () => {
 	let actions
 	let store 
 
@@ -18,9 +18,9 @@ describe('DayInHistoryViewer', () => {
 			actions
 		})
 	})
-	it('Contains a #datepicker object', () => {
-		const wrapper = shallowMount(DayInHistoryViewer, {store,localVue})
-		const div = wrapper.find('#datepicker')
+	it('Contains a #todoTable object', () => {
+		const wrapper = shallowMount(Todo, {store,localVue})
+		const div = wrapper.find('#todoTable')
 		assert(div)
 	})
 })

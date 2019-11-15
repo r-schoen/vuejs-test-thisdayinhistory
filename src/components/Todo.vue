@@ -42,8 +42,8 @@ export default {
     }},
     methods: {
         deleteTodo(index) {
-            this.$store.dispatch('deleteTodo',index)
             console.log(index)
+            this.$store.dispatch('deleteTodo',index)
         },
         addTodo(){
             this.$store.dispatch('addTodo')

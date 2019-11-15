@@ -2,7 +2,7 @@
   <div id="app" class="container">
     <h1>On This Day</h1>
     <h3>Provided by Wikipedia</h3>
-    <datepicker 
+    <!--<datepicker 
       id='datepicker'
       v-model="model.date"
       :inline='false' 
@@ -11,21 +11,33 @@
       popover-align="center"
       @selected="updateDate($event)"
       @opened="updateDate($event)">
-    </datepicker>
+    </datepicker>-->
+    <v-date-picker
+      id="datepicker"
+       :popover="{ placement: 'bottom', visibility: 'click' }"
+      v-model="model.date"
+      :popover-align:center="true"
+      :inlign='false' 
+      :attributes='model.attributes'
+      @click="updateDate($event)"/>
     <day-in-history />
   </div>
 </template>
 
 <script>
-import Datepicker from 'vuejs-datepicker'
 import DayInHistory from './DayInHistory.vue'
 import { FULL_URL } from '../util/constants.js'
+
 export default {
   data() {
     return {
       name: "russell",
       model: {
+        attributes: [{
+          key: 'today'
+        }],
         date: new Date(),
+        mode: 'single',
         highlighted: {
           dates: [
             new Date()
@@ -35,7 +47,6 @@ export default {
     }
   },
   components: {
-    Datepicker,
     DayInHistory
   },
   methods: {
