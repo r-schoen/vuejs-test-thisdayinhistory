@@ -1,23 +1,39 @@
 <template>
   <div id="app" class="container">
-    <h1>On This Day</h1>
-    <h3>Provided by Wikipedia</h3>
-    <datepicker 
-      id='datepicker'
-      v-model="model.date"
-      :inline='false' 
-      :value="model.date" 
-      :highlighted="model.highlighted"
-      popover-align="center"
-      @selected="updateDate($event)"
-      @opened="updateDate($event)">
-    </datepicker>
+    <header id="header">
+      <h1>On This Day</h1>
+      <h3>Provided by Wikipedia</h3>
+    </header> 
+    <div id='day-in-history'>
+        <datepicker 
+          id='datepicker'
+          v-model="model.date"
+          :inline='true' 
+          :value="model.date" 
+          :highlighted="model.highlighted"
+          popover-align="center"
+          @selected="updateDate($event)"
+          @opened="updateDate($event)">
+        </datepicker>
+        <ul id='things-n-stuff'>
+            <li v-for="(item,index) in this.$store.state.dateEventData.selected" v-bind:key="index">
+                <b>{{ item.year }} </b> - {{ item.text }}
+                <span class="sources">
+                (Sources:
+                    <span v-for="(page, index) in item.pages" 
+                        v-bind:key="index" >
+                        <span v-if="index != 0">, </span>
+                        <a :href="page.content_urls.desktop.page">{{ page.displaytitle }}</a>
+                    </span>)
+                </span>
+            </li>
+        </ul>
+    </div>
     <DayInHistory />
   </div>
 </template>
 
 <script>
-import DayInHistory from './DayInHistory.vue'
 import { FULL_URL } from '../util/constants.js'
 import Datepicker from 'vuejs-datepicker'
 
@@ -36,9 +52,7 @@ export default {
     }
   },
   components: {
-    DayInHistory,
     Datepicker
-
   },
   methods: {
     updateDate: function(date) {
