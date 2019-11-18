@@ -9,8 +9,8 @@
                 <th></th>
             </thead>
             <tbody>
-                <tr v-for="(row, r_index) in this.$store.state.todoData" v-bind:key="r_index">
-                    <td v-for="(cell, c_index) in row" v-bind:key="c_index">
+                <tr v-for="(row, r_index) in this.todoData" v-bind:key="row.text">
+                    <td v-for="(cell, c_index) in row" v-bind:key="cell">
                         <todo-cell :entry="cell" :index="r_index" :column="c_index"/>
                     </td>
                     <td>
@@ -50,7 +50,12 @@ export default {
         }
     },
     components: {
-        TodoCell
+        TodoCell,
+    },
+    computed: {
+        todoData() {
+            return this.$store.getters.todoData
+        }
     }
 }
 </script>

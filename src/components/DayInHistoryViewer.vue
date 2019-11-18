@@ -16,14 +16,15 @@
           @opened="updateDate($event)">
         </datepicker>
         <ul id='things-n-stuff'>
-            <li v-for="(item,index) in this.$store.state.dateEventData.selected" v-bind:key="index">
-                <b>{{ item.year }} </b> - {{ item.text }}
+            <li v-for="(item,index) in dateEventData.selected" v-bind:key="index">
+                <b>{{ item.year }} </b> - 
+                <span v-html="item.text"></span>
                 <span class="sources">
                 (Sources:
                     <span v-for="(page, index) in item.pages" 
                         v-bind:key="index" >
                         <span v-if="index != 0">, </span>
-                        <a :href="page.content_urls.desktop.page">{{ page.displaytitle }}</a>
+                        <a v-html="page.displaytitle" :href="page.content_urls.desktop.page">{{ page.displaytitle }}</a>
                     </span>)
                 </span>
             </li>
@@ -57,6 +58,9 @@ export default {
     updateDate: function(date) {
       this.model.date = date
       this.$store.dispatch('updateDateEventData', this.url, date)
+    },
+    getNumberList() {
+      return this.$store.state.getters.getNumberList()
     }
   },
   mounted() {
@@ -65,6 +69,9 @@ export default {
   computed: {
     url: function() {
       return `${FULL_URL}${this.model.date.getMonth()+1}/${this.model.date.getDate()}`
+    },
+    dateEventData() {
+      return this.$store.getters.dateEventData
     }
   }
 }

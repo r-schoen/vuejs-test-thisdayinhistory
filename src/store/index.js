@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import Axios from 'axios'
-
 Vue.use(Vuex)
 
 
@@ -12,18 +11,26 @@ export default new Vuex.Store({
     dateEventData: null,
     todoData: [
       {
-        text:"Take out the trash",
-        due:"2019-11-14"
+      "text":"Take out the trash",
+      "due":"2019-11-14"
       },
       {
-        text:"Study Chinese",
-        due:"2019-11-14"
+      "text":"Study Chinese",
+      "due":"2019-11-14"
       },
       {
-        text:"Jog 2 miles",
-        due:"2019-11-14"
+      "text":"Jog 2 miles",
+      "due":"2019-11-14"
       }
-  ]
+    ]
+  },
+  getters: {
+    dateEventData: (state) => { 
+      return state.dateEventData
+    },
+    todoData: (state) => {
+      return state.todoData
+    }
   },
   mutations: {
     updateSelectedDate (state, selectedDate) {
