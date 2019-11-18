@@ -28,7 +28,3 @@ npm run lint
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
-
-https://vue-test-utils.vuejs.org/
-https://github.com/vuejs/vue-syntax-highlight
-git clone -b SublimeText2 git://github.com/kuroir/SCSS.tmbundle.git SCSS
