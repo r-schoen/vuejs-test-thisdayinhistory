@@ -37,7 +37,7 @@ export default new Vuex.Store({
     },
     deleteTodo(state, index) {
       console.log(index)
-      state.todoData.pop(index)
+      state.todoData.splice(index,1)
     },
     addTodo(state){
       state.todoData.push({

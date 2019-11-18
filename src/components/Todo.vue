@@ -1,6 +1,6 @@
 <template>
     <div id="todoTable">
-        <h1>To Do List</h1>
+        <h1 id="header">To Do List</h1>
         <table class="table">
             <thead>
                 <th v-for="(key, index) in gridColumns" v-bind:key="index">
@@ -42,7 +42,7 @@ export default {
     }},
     methods: {
         deleteTodo(index) {
-            console.log(index)
+            console.log(`Deleting item with index ${index}`)
             this.$store.dispatch('deleteTodo',index)
         },
         addTodo(){
