@@ -29,7 +29,6 @@
             </li>
         </ul>
     </div>
-    <DayInHistory />
   </div>
 </template>
 
